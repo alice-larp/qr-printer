@@ -1,0 +1,22 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:49302/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "webserver": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\Dev\\qr-printer",
+      "launchBrowser": true,
+      "launchUrl": "print",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:8091/"
+    }
+  }
+}

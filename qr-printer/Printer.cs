@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace qr_printer
 {
-    class Printer
+    public class Printer
     {
         private string printerName;
 
