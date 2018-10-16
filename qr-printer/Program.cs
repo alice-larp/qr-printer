@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Printer.Print();
+            new Printer("Brother QL-810W").PrintQr("Hello", "123");
         }
     }
 }
