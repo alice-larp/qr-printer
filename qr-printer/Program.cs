@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Net;
 
 namespace qr_printer
@@ -16,7 +19,11 @@ namespace qr_printer
 
         public static string SendResponse(HttpListenerRequest request)
         {
-            new Printer("Brother QL-810W").PrintQr("Hello", "123");
+            Console.WriteLine(request.HttpMethod);
+            StreamReader getPostParam = new StreamReader(request.InputStream, true);
+            var postData = JsonConvert.DeserializeObject<Dictionary<string, string>>(getPostParam.ReadToEnd());
+            Console.WriteLine(postData);
+            new Printer("Brother QL-810W").PrintQr(postData["label"], postData["qr"]);
             return "QR printed!";
         }
     }

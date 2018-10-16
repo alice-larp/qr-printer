@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "3fa35c57-113a-4895-9474-40eb5b65790d",
+		"name": "Printer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "b59010ae-5b13-4616-b0fd-21eb26cfd71f",
+			"name": "Print",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"label\": \"Pony\", \"qr\": \"stuff\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8091/print/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8091",
+					"path": [
+						"print",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
