@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace webserver.Controllers
 {
     public class PrintRequest
     {
-        public string label;
-        public string qr;
+        [Required]
+        public string Label { get; set; }
+        [Required]
+        public string Qr { get; set; }
     }
 
     [Route("[controller]")]
@@ -20,9 +23,17 @@ namespace webserver.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody]PrintRequest req)
+        public IActionResult Post([FromBody]PrintRequest req)
         {
-            printer.PrintQr(req.label, req.qr);
+            if (ModelState.IsValid)
+            {
+                printer.PrintQr(req.Label, req.Qr);
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }
