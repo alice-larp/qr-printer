@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using System.ComponentModel.DataAnnotations;
 
 namespace webserver.Controllers
@@ -11,11 +12,13 @@ namespace webserver.Controllers
         public string Qr { get; set; }
     }
 
+    [Authorize]
     [Route("[controller]")]
     public class PrintController : Controller
     {
         qr_printer.Printer printer = new qr_printer.Printer(DotNetEnv.Env.GetString("PRINTER_NAME") ?? "Brother QL-810W");
 
+        [AllowAnonymous]
         [HttpGet]
         public string Get()
         {
