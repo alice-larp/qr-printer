@@ -14,7 +14,7 @@ namespace webserver.Controllers
     [Route("[controller]")]
     public class PrintController : Controller
     {
-        qr_printer.Printer printer = new qr_printer.Printer("Brother QL-810W");
+        qr_printer.Printer printer = new qr_printer.Printer(DotNetEnv.Env.GetString("PRINTER_NAME") ?? "Brother QL-810W");
 
         [HttpGet]
         public string Get()

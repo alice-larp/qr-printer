@@ -14,6 +14,11 @@ namespace webserver
     {
         public static void Main(string[] args)
         {
+            try
+            {
+                DotNetEnv.Env.Load();
+            }
+            catch { /* Ignore exception if .env file is missing */ }
             BuildWebHost(args).Run();
         }
 
