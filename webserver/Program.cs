@@ -25,6 +25,7 @@ namespace webserver
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseUrls("http://*:8091")
                 .Build();
     }
 }
